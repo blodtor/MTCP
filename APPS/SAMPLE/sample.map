@@ -1,0 +1,770 @@
+Open Watcom Linker Version 1.9
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       22/07/16 15:02:14
+Executable Image: sample.exe
+creating a DOS executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          108a:0000            00002c30
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+BEGTEXT                CODE           AUTO           0000:0000       00000007
+_TEXT                  CODE           AUTO           0000:0010       0000e613
+arp_DATA1              FAR_CONST      AUTO           0e62:0003       00000279
+dns_DATA1              FAR_CONST      AUTO           0e62:027c       0000034f
+ip_DATA1               FAR_CONST      AUTO           0e62:05cb       00000285
+packet_DATA1           FAR_CONST      AUTO           0e62:0850       00000139
+sample_DATA1           FAR_CONST      AUTO           0e62:0989       00000414
+tcp_DATA1              FAR_CONST      AUTO           0e62:0d9d       00000d83
+tcpsockm_DATA1         FAR_CONST      AUTO           0e62:1b20       000001b0
+trace_DATA1            FAR_CONST      AUTO           0e62:1cd0       0000002a
+udp_DATA1              FAR_CONST      AUTO           0e62:1cfa       0000014d
+utils_DATA1            FAR_CONST      AUTO           0e62:1e47       0000042d
+FAR_DATA               FAR_DATA       AUTO           0e62:2274       00000000
+_NULL                  BEGDATA        DGROUP         108a:0000       00000020
+_AFTERNULL             BEGDATA        DGROUP         108c:0000       00000002
+CONST                  DATA           DGROUP         108c:0002       000003c4
+CONST2                 DATA           DGROUP         10c9:0000       00000214
+_DATA                  DATA           DGROUP         10eb:0000       0000057e
+XIB                    DATA           DGROUP         1142:000e       00000000
+XI                     DATA           DGROUP         1142:000e       0000002a
+XIE                    DATA           DGROUP         1145:0008       00000000
+YIB                    DATA           DGROUP         1145:0008       00000000
+YI                     DATA           DGROUP         1145:0008       00000018
+YIE                    DATA           DGROUP         1147:0000       00000000
+STRINGS                DATA           DGROUP         1147:0000       00000000
+DATA                   DATA           DGROUP         1147:0000       00000000
+_BSS                   BSS            DGROUP         1147:0000       00001056
+STACK                  STACK          DGROUP         124d:0000       00001000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: arp.obj(C:\MTCP\TCPLIB\arp.cpp)
+108a:0bd0+     Arp::__1d89chPending_t far Arp::pending[]
+108a:0be4      short unsigned far Arp::pendingEntries
+108a:0be6+     Arp::__ja02nRec_t far Arp::arpTable[]
+108a:0c2c+     short unsigned far Arp::entries
+108a:0c30+     long unsigned far Arp::RequestsReceived
+108a:0c34+     long unsigned far Arp::RepliesReceived
+0000:0010      void near Arp::dumpStats( __iobuf far * )
+0000:0057      void near Arp::init()
+0000:01c5      void near Arp::clearPendingTable()
+0000:01e9*     void near Arp::dumpTable()
+0000:0280+     char signed near Arp::findEth( char unsigned const far *, char unsigned far * )
+0000:02f6      void near Arp::processArp( char unsigned far *, short unsigned )
+0000:0502      void near Arp::driveArp2()
+0000:05df+     void near Arp::updateEntry( short unsigned, char unsigned const far * )
+0000:064c+     void near Arp::updateOrAddCache( char unsigned far *, char unsigned far * )
+0000:07b0+     void near Arp::sendArpRequest( char unsigned far * )
+0000:087d+     void near Arp::sendArpRequest2( char unsigned far * )
+0000:08e7+     void near Arp::sendArpResponse( ArpHeader far * )
+0000:097d      char signed near Arp::resolve( char unsigned far *, char unsigned far * )
+108a:0c38+     long unsigned far Arp::RequestsSent
+108a:0c3c+     long unsigned far Arp::RepliesSent
+108a:0c40+     long unsigned far Arp::CacheModifiedCount
+108a:0c44+     long unsigned far Arp::CacheEvictions
+108a:0c48+     __48kk6eArpPacket_t far Arp_prebuiltResponse
+108a:0c84+     __48kk6eArpPacket_t far Arp_prebuiltRequest
+Module: dns.obj(C:\MTCP\TCPLIB\dns.cpp)
+108a:0cc0      char unsigned far Dns::NameServer[]
+108a:0cc4      char unsigned far Dns::queryPending
+108a:0cc5+     __anonymous_enum far Dns::lastQueryRc
+108a:0cc6+     Dns::__7baff2DNS_Pending_Rec_t far Dns::pendingQuery
+108a:0dd4+     Dns::__4rnkjhDNS_Rec_t far Dns::dnsTable[]
+108a:0e5c+     char unsigned far Dns::entries
+108a:0630      char far Dns::Domain[]
+108a:0668      char far Dns::HostsFilename[]
+0000:099b*     void near Dns::flushCache()
+0000:09b8+     char signed near Dns::find( char const far * )
+0000:0a04+     void near Dns::addOrUpdate( char const far *, char unsigned far * )
+0000:0af2*     void near Dns::deleteFromCache( char const far * )
+0000:0b38      char signed near Dns::init()
+0000:0b7b      void near Dns::stop()
+0000:0b81      char signed near Dns::resolve( char const far *, char unsigned far *, char unsigned )
+0000:0da9+     void near Dns::sendRequest( char unsigned far *, char const far *, short unsigned )
+0000:10a4+     void near Dns::udpHandler( char unsigned const far *, UdpHeader const far * )
+0000:147c      void near Dns::drivePendingQuery()
+0000:152e+     void near Dns::drivePendingQuery2()
+0000:155e+     void near Dns::scanHostsFile( char const far *, char const far *, char unsigned far * )
+Module: eth.obj(C:\MTCP\TCPLIB\eth.cpp)
+108a:03f0      char unsigned const far Eth::Eth_Broadcast[]
+108a:06c8      short unsigned far MyMTU
+108a:0fe0      char unsigned far MyEthAddr[]
+Module: ip.obj(C:\MTCP\TCPLIB\ip.cpp)
+108a:0ff0      char unsigned far Gateway[]
+108a:0ff4      char unsigned const far IpInvalid[]
+108a:0ff8+     long unsigned far Ip::icmpRecvPackets
+108a:0ffc*     long unsigned far Ip::ptrWrapCorrected
+108a:1000+     long unsigned far Ip::badChecksum
+108a:1004+     long unsigned far Ip::unhandledProtocol
+108a:1008+     long unsigned far Ip::fragsReceived
+108a:100c+     long unsigned far Ip::goodReassemblies
+108a:1010+     long unsigned far Ip::timeoutReassemblies
+108a:1014+     long unsigned far Ip::notEnoughSlots
+108a:1018+     long unsigned far Ip::tooManyInFlight
+108a:101c+     long unsigned far Ip::payloadTooBig
+108a:1020+     short unsigned far IpHeader::IpIdent
+108a:1022      char unsigned far * far Ip::ipReassemblyMemoryStart
+108a:1026      char unsigned far * far Ip::ipReassemblyMemoryEnd
+108a:102a      char unsigned far Ip::fragsInReassembly
+108a:06d0      char far MyHostname[]
+108a:06e4      char unsigned far MyIpAddr[]
+108a:06e8      char unsigned far Netmask[]
+108a:06ec      long unsigned far MyIpAddr_u
+108a:06f0      long unsigned far Netmask_u
+0000:16d4      void near Ip::dumpStats( __iobuf far * )
+0000:181a      int near Ip::initForReassembly()
+0000:1884      void near Ip::reassemblyStop()
+0000:18be      void near Ip::returnBigPacket( char unsigned far * )
+0000:18d9      void near Ip::purgeOverdue()
+0000:1e1c      void near Ip::process( char unsigned far *, short unsigned )
+0000:1f64      void near IpHeader::set( char unsigned, char unsigned const far *, short unsigned, char unsigned, short unsigned )
+0000:2040      char signed near IpHeader::setDestEth( char unsigned far * )
+0000:20f5      void near Icmp::init()
+0000:211d+     void near Icmp::process( char unsigned far *, IpHeader far * )
+108a:0400      char unsigned const far IpBroadcastNonRoutable[]
+108a:11b6+     void (near * far Icmp::icmpCallback)( char unsigned const far *, IcmpHeader const far * )
+108a:11b8+     __oot5mIcmpEchoPacket_t far Icmp::icmpEchoPacket
+Module: ipasm.obj(IPASM)
+0000:22c2      _ipchksum
+0000:22f2      _ip_p_chksum
+0000:2367*     _ip_p_chksum2
+Module: packet.obj(C:\MTCP\TCPLIB\packet.cpp)
+108a:1332      char unsigned far Buffer_first
+108a:1333      char unsigned far Buffer_next
+108a:1366+     char unsigned far Buffer_lowFreeCount
+108a:1368+     long unsigned far Packets_dropped
+108a:136c+     long unsigned far Packets_received
+108a:1370+     long unsigned far Packets_sent
+108a:1374+     long unsigned far Packets_send_errs
+108a:1378+     long unsigned far Packets_send_retries
+0000:23fd      char signed near Buffer_init()
+0000:2469      void near Buffer_startReceiving()
+0000:2470      void near Buffer_free( char unsigned const far * )
+0000:24cc      void near Buffer_stopReceiving()
+0000:24d3      void near Buffer_stop()
+0000:24ea      char signed near Packet_registerEtherType( short unsigned, void (near *)())
+0000:251c*     void near Packet_registerDefault( void (near *)())
+0000:25fc      char signed near Packet_init( char unsigned )
+0000:26da      char signed near Packet_release_type()
+0000:2748      void near Packet_get_addr( char unsigned far * )
+0000:2789      void near Packet_send_pkt( void far *, short unsigned )
+0000:285a      void near Packet_process_internal()
+0000:293d      void near Packet_dumpStats( __iobuf far * )
+0000:2985*     char unsigned near Packet_getSoftwareInt()
+0000:298a*     short unsigned near Packet_getHandle()
+108a:071a+     char const far * far PKT_DRVR_EYE_CATCHER
+108a:1380+     void (near * far Packet_EtherTypeHandler[])( char unsigned far *, short unsigned )
+108a:1384+     short unsigned far Packet_EtherTypeVal[]
+108a:1388+     char unsigned far Packet_EtherTypeHandlers
+108a:138a+     void (near * far Packet_typeUnhandled)( char unsigned far *, short unsigned )
+Module: sample.obj(C:\MTCP\APPS\SAMPLE\sample.cpp)
+0000:298f+     void far ctrlBreakHandler()
+0000:29b5+     void far ctrlCHandler()
+0000:29c6      main_
+0000:2dcb+     void near errorMsg( char far * )
+0000:2dd8+     void near usage()
+108a:071e+     short unsigned far LclPort
+108a:0720+     char signed far Listening
+108a:0722+     char far * far HelpText[]
+108a:1390+     char far ServerAddrName[]
+108a:13e0+     short unsigned far ServerPort
+108a:13e8+     char unsigned far recvBuffer[]
+108a:17e8+     char unsigned volatile far CtrlBreakDetected
+Module: tcp.obj(C:\MTCP\TCPLIB\tcp.cpp)
+108a:17f0+     long unsigned far Tcp::Packets_Sent
+108a:17f4+     long unsigned far Tcp::Packets_Received
+108a:17f8+     long unsigned far Tcp::Packets_Retransmitted
+108a:17fc+     long unsigned far Tcp::Packets_SeqOrAckError
+108a:1800+     long unsigned far Tcp::Packets_DroppedNoSpace
+108a:1804+     long unsigned far Tcp::OurWindowReopened
+108a:1808+     long unsigned far Tcp::SentZeroWindowProbe
+108a:180c+     long unsigned far Tcp::ChecksumErrors
+108a:1810      short unsigned far Tcp::Pending_Sent
+108a:1812      short unsigned far Tcp::Pending_Outgoing
+108a:1814+     TcpBuffer far * far TcpBuffer::xmitBuffers[]
+108a:183c+     char unsigned far TcpBuffer::freeXmitBuffers
+108a:0740+     char far * far TcpSocket::StateDesc[]
+0000:2f77      void near Tcp::dumpStats( __iobuf far * )
+0000:2fbe      char signed near TcpBuffer::init( char unsigned )
+0000:30ae      void near TcpBuffer::stop()
+0000:30c5*     near TcpSocket::TcpSocket()
+0000:30d5      void near TcpSocket::reinit()
+0000:31d9      char signed near TcpSocket::setRecvBuffer( short unsigned )
+0000:32c1+     char signed near TcpSocket::connect2( short unsigned, char unsigned far *, short unsigned )
+0000:33a1      char signed near TcpSocket::connect( short unsigned, char unsigned far *, short unsigned, long unsigned )
+0000:34c2*     char signed near TcpSocket::connectNonBlocking( short unsigned, char unsigned far *, short unsigned )
+0000:34d5      char signed near TcpSocket::listen( short unsigned, short unsigned )
+0000:35bb+     char signed near TcpSocket::shutdown( char unsigned )
+0000:3604+     char signed near TcpSocket::closeLocal()
+0000:3755      void near TcpSocket::close()
+0000:37ee*     void near TcpSocket::closeNonblocking()
+0000:382f+     char signed near TcpSocket::isCloseDone()
+0000:38cf+     void near TcpSocket::clearQueues()
+0000:39cf      void near TcpSocket::destroy()
+0000:3a46+     void near TcpSocket::setMaxEnqueueSize( TcpHeader far * )
+0000:3a87+     short near TcpSocket::enqueue( TcpBuffer far * )
+0000:3c29+     void near TcpSocket::resendPacket( TcpBuffer far * )
+0000:3cae+     char signed near TcpSocket::sendPacket( TcpBuffer far * )
+0000:411c+     void near TcpSocket::sendResetPacket( IpHeader far *, TcpHeader far *, short unsigned )
+0000:4242+     void near TcpSocket::sendPureAck( bool )
+0000:4309      void near Tcp::process( char unsigned far *, IpHeader far * )
+0000:453b+     void near Tcp::process2( char unsigned far *, IpHeader far *, TcpHeader far *, TcpSocket far * )
+0000:4bf3+     int near Tcp::processPacketData( TcpSocket far *, short unsigned, char unsigned far *, IpHeader far *, TcpHeader far * )
+0000:4ddb+     void near TcpSocket::processSyn( IpHeader far *, TcpHeader far *, long unsigned )
+0000:4f17+     void near TcpSocket::removeSentPackets( long unsigned )
+0000:5105+     char signed near TcpSocket::addToRcvBuf( char unsigned far *, short unsigned )
+0000:51d7      short near TcpSocket::recv( char unsigned far *, short unsigned )
+0000:5332      short near TcpSocket::send( char unsigned far *, short unsigned )
+0000:5453      void near Tcp::drivePackets2()
+0000:5799+     short unsigned near TcpHeader::readMSS( TcpHeader far * )
+108a:183d+     char unsigned far TcpBuffer::allocatedXmitBuffers
+108a:183e+     void far * far TcpBuffer::xmitBuffersMemPtr
+Module: tcpsockm.obj(C:\MTCP\TCPLIB\tcpsockm.cpp)
+108a:1842      TcpSocket far * far TcpSocketMgr::socketTable[]
+108a:184a+     TcpSocket far * far TcpSocketMgr::availSocketTable[]
+108a:1852+     TcpSocket far * far TcpSocketMgr::socketsMemPtr
+108a:1856      char unsigned far TcpSocketMgr::activeSockets
+108a:1857+     char unsigned far TcpSocketMgr::availSockets
+0000:57f2      char signed near TcpSocketMgr::init( char unsigned )
+0000:58d9      void near TcpSocketMgr::stop()
+0000:58f0      TcpSocket far * near TcpSocketMgr::getSocket()
+0000:5961      char signed near TcpSocketMgr::freeSocket( TcpSocket far * )
+0000:59cd      TcpSocket far * near TcpSocketMgr::accept()
+0000:5acc      void near TcpSocketMgr::makeActive( TcpSocket far * )
+0000:5b4f      void near TcpSocketMgr::makeInactive( TcpSocket far * )
+108a:1858+     char unsigned far TcpSocketMgr::allocatedSockets
+108a:1859      char unsigned far TcpSocketMgr::pendingAccepts
+108a:185a      short unsigned far TcpSocketMgr::MSS_to_advertise
+Module: timer.obj(C:\MTCP\TCPLIB\timer.cpp)
+108a:1860      long unsigned volatile far Timer_CurrentTicks
+0000:5bbe+     void far Timer_tick_handler()
+0000:5bf9      void near Timer_start()
+0000:5c27      void near Timer_stop()
+108a:1866+     void (far * far Timer_old_tick_handler)()
+Module: trace.obj(C:\MTCP\TCPLIB\trace.cpp)
+0000:5c46      void near Trace_beginTracing()
+0000:5c98      void near Trace_endTracing()
+0000:5ca7      void near Trace_tprintf( char far *, ... )
+108a:0788      __iobuf far * far Trace_Stream
+108a:078c      char far Trace_Severity
+108a:186a      short unsigned far Trace_Debugging
+108a:186c      char far * far Trace_LogFile
+Module: udp.obj(C:\MTCP\TCPLIB\udp.cpp)
+108a:1870+     char unsigned far Udp::callbackPorts
+108a:1872+     short unsigned far Udp::callbackList[]
+108a:1874+     void (near * far Udp::callbackFunctions[])( char unsigned const far *, UdpHeader const far * )
+108a:1878+     long unsigned far Udp::Packets_Sent
+108a:187c+     long unsigned far Udp::Fragments_Sent
+108a:1880+     long unsigned far Udp::Packets_Received
+0000:5d38      void near Udp::dumpStats( __iobuf far * )
+0000:5d77      char signed near Udp::registerCallback( short unsigned, void (near *)())
+0000:5dc2      char signed near Udp::unregisterCallback( short unsigned )
+0000:5e0c      char signed near Udp::sendUdp( char unsigned const far *, short unsigned, short unsigned, short unsigned, char unsigned far *, char unsigned )
+0000:5fa3      void near Udp::process( char unsigned const far *, IpHeader far * )
+108a:1884+     long unsigned far Udp::NoHandler
+108a:1888+     long unsigned far Udp::ChecksumErrors
+Module: utils.obj(C:\MTCP\TCPLIB\utils.cpp)
+108a:0410+     char const far Parm_PacketInt[]
+108a:0420+     char const far Parm_Hostname[]
+108a:0430+     char const far Parm_Domain[]
+108a:0438+     char const far Parm_IpAddr[]
+108a:0440+     char const far Parm_Gateway[]
+108a:0448+     char const far Parm_Netmask[]
+108a:0450+     char const far Parm_Nameserver[]
+108a:0460+     char const far Parm_Nameserver_preferred[]
+108a:0478+     char const far Parm_Mtu[]
+108a:0480+     char const far Parm_HostsFilename[]
+108a:0490*     char const far Parm_DHCPLeaseRequest[]
+108a:1890      char unsigned far mTCP_releaseTimesliceEnabled
+108a:1894+     char unsigned far Preferred_nameserver[]
+108a:1898+     bool far Preferred_nameserver_set
+108a:1899+     char unsigned far Utils::packetInt
+108a:189a+     __iobuf far * far Utils::CfgFile
+108a:189e+     char far * far Utils::CfgFilenamePtr
+108a:18a2+     void (far * far Utils::oldCtrlBreakHandler)()
+108a:18a8+     char far Utils::lineBuffer[]
+108a:1948+     char far Utils::parmName[]
+0000:60e5      void near Utils::dumpBytes( __iobuf far *, char unsigned far *, int unsigned )
+0000:61dc+     bool near Utils::rtrim( char far * )
+0000:6206+     int near Utils::getLine( __iobuf far *, bool, char far *, int, int )
+0000:62a5      char signed near Utils::parseEnv()
+0000:68df+     void near Utils::parseOptionalEnvVars()
+0000:6960*     __iobuf far * near Utils::openCfgFile()
+0000:69aa*     void near Utils::closeCfgFile()
+0000:69b9*     char signed near Utils::getAppValue( char const far *, char far *, short unsigned )
+0000:6a96      char signed near Utils::initStack( char unsigned, char unsigned, void (far *)(), void (far *)())
+0000:6dd8      void near Utils::endStack()
+0000:6e3e      void near Utils::dumpStats( __iobuf far * )
+0000:6e66*     long unsigned near Utils::timeDiff( dostime_t, dostime_t )
+0000:6f41      char far * near Utils::getNextToken( char far *, char far *, short unsigned )
+108a:078d      char unsigned far mTCP_sleepCallEnabled
+Module: C:\WATCOM/lib286/dos\clibc.lib(fprintf.c)
+0000:70c1      fprintf_
+Module: C:\WATCOM/lib286/dos\clibc.lib(getenv.c)
+0000:70ee      getenv_
+Module: C:\WATCOM/lib286/dos\clibc.lib(time.c)
+0000:71a5      time_
+Module: C:\WATCOM/lib286/dos\clibc.lib(strcpy.c)
+0000:71ec      strcpy_
+Module: C:\WATCOM/lib286/dos\clibc.lib(stricmp.c)
+0000:7237      stricmp_
+Module: C:\WATCOM/lib286/dos\clibc.lib(strlen.c)
+0000:7274      strlen_
+Module: C:\WATCOM/lib286/dos\clibc.lib(isdigit.c)
+0000:7289      isdigit_
+Module: C:\WATCOM/lib286/dos\clibc.lib(sscanf.c)
+0000:72ca+     vsscanf_
+0000:72f4      sscanf_
+Module: C:\WATCOM/lib286/dos\clibc.lib(strcat.c)
+0000:7321      strcat_
+Module: C:\WATCOM/lib286/dos\clibc.lib(memset.c)
+0000:734c      memset_
+Module: C:\WATCOM/lib286/dos\clibc.lib(rand.c)
+0000:7363      rand_
+0000:73a3      srand_
+Module: C:\WATCOM/lib286/dos\clibc.lib(memcpy.c)
+0000:73c6      memcpy_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fopen.c)
+0000:73e8+     __open_flags_
+0000:75d9+     _fsopen_
+0000:763d      fopen_
+0000:7713*     freopen_
+Module: C:\WATCOM/lib286/dos\clibc.lib(feof.c)
+0000:7788      feof_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fgets.c)
+0000:7795      fgets_
+Module: C:\WATCOM/lib286/dos\clibc.lib(puts.c)
+0000:7822      puts_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fclose.c)
+0000:784e      __doclose_
+0000:78f7      __shutdown_stream_
+0000:790e      fclose_
+108a:19b4+     ___RmTmpFileFn
+Module: C:\WATCOM/lib286/dos\clibc.lib(fmalloc.c)
+0000:7958      _fmalloc_
+0000:7958      malloc_
+108a:0792      ___fheap
+108a:0794      ___fheapRover
+108a:0796      ___LargestSizeB4Rover
+Module: C:\WATCOM/lib286/dos\clibc.lib(ffree.c)
+0000:7a5b      _ffree_
+0000:7a5b      free_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fmemcmp.c)
+0000:7a9d      _fmemcmp_
+Module: C:\WATCOM/lib286/dos\clibc.lib(intx086.c)
+0000:7ac5      int86x_
+0000:7b5c*     int86_
+Module: C:\WATCOM/lib286/dos\clibc.lib(iob.c)
+108a:0798      ___iob
+108a:0900      __fmode
+108a:19b6      ___OpenStreams
+108a:19ba      ___ClosedStreams
+Module: C:\WATCOM/lib286/dos\clibc.lib(exit.c)
+0000:7b86+     __null_int23_exit_
+0000:7b87      exit_
+0000:7bb4*     _exit_
+108a:0902+     ___int23_exit
+108a:0904+     ___FPE_handler_exit
+Module: C:\WATCOM/lib286/dos\clibc.lib(bioskeyb.c)
+0000:7bce      _bios_keybrd_
+Module: C:\WATCOM/lib286/dos\clibc.lib(write.c)
+0000:7cfc      write_
+Module: C:\WATCOM/lib286/dos\clibc.lib(atoi.c)
+0000:7ed2      atoi_
+Module: C:\WATCOM/lib286/dos\clibc.lib(cstart)
+0000:0003*     ___begtext
+108a:0000*     __nullarea
+0000:7f3a      _cstart_
+0000:800f*     _Not_Enough_Memory_
+0000:813a      __exit_
+0000:8159      __do_exit_with_msg__
+0000:819c      __GETDS
+Module: C:\WATCOM/lib286/dos\clibc.lib(argcv.c)
+108a:19be      __argv
+108a:19c2      ___argv
+108a:19c6      __argc
+108a:19c8      ___argc
+Module: C:\WATCOM/lib286\plibc.lib(fsroot.cpp)
+108a:0ba0      ___wcpp_4_data_init_fs_root_
+Module: C:\WATCOM/lib286/dos\clibc.lib(i4d)
+0000:81bc*     __I4D
+0000:8205      __U4D
+Module: C:\WATCOM/lib286/dos\clibc.lib(chainint)
+0000:828a      _chain_intr_
+Module: C:\WATCOM/lib286/dos\clibc.lib(d_getvec.c)
+0000:82aa      _dos_getvect_
+Module: C:\WATCOM/lib286/dos\clibc.lib(d_setvec.c)
+0000:82b5      _dos_setvect_
+Module: C:\WATCOM/lib286/dos\clibc.lib(dosgtime)
+0000:82c2      _dos_getdate_
+0000:82e0      _dos_gettime_
+Module: C:\WATCOM/lib286/dos\clibc.lib(vfprintf.c)
+0000:82fe      vfprintf_
+Module: C:\WATCOM/lib286/dos\clibc.lib(flushall.c)
+0000:830e      __flushall_
+0000:8369      flushall_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fputs.c)
+0000:836e      fputs_
+Module: C:\WATCOM/lib286/dos\clibc.lib(errno.c)
+0000:8408      __get_errno_ptr_
+0000:840f      __get_doserrno_ptr_
+108a:19ca+     _errno
+108a:19cc+     __doserrno
+Module: C:\WATCOM/lib286/dos\clibc.lib(strerror.c)
+0000:8416      strerror_
+0000:843e*     _strerror_
+108a:0906+     __sys_errlist
+108a:09aa+     __sys_nerr
+Module: C:\WATCOM/lib286/dos\clibc.lib(fseek.c)
+0000:856f      fseek_
+Module: C:\WATCOM/lib286/dos\clibc.lib(isspace.c)
+0000:86b2      isspace_
+Module: C:\WATCOM/lib286/dos\clibc.lib(strncpy.c)
+0000:86c8      strncpy_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fheapchk.c)
+0000:87bd*     _fheapchk_
+0000:87bd      _heapchk_
+108a:1ace+     ___fheapchk_current
+Module: C:\WATCOM/lib286/dos\clibc.lib(fflush.c)
+0000:8837      fflush_
+Module: C:\WATCOM/lib286/dos\clibc.lib(i4m)
+0000:8848      __I4M
+0000:8848      __U4M
+Module: C:\WATCOM/lib286/dos\clibc.lib(fprtf.c)
+0000:8878      __fprtf_
+Module: C:\WATCOM/lib286/dos\clibc.lib(environ.c)
+108a:1ad2      ___env_mask
+108a:1ad6      _environ
+108a:1ada*     __wenviron
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbterm.c)
+0000:8939      _mbterm_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbsnextc.c)
+0000:897b      _mbsnextc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbcupper.c)
+0000:89ac      _mbctoupper_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbsinc.c)
+0000:89cb      _mbsinc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(gtctm.c)
+0000:8a07      __getctime_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mktime.c)
+0000:8a90      mktime_
+Module: C:\WATCOM/lib286/dos\clibc.lib(istable.c)
+108a:04fa      __IsTable
+Module: C:\WATCOM/lib286/dos\clibc.lib(scnf.c)
+0000:9a19      __scnf_
+Module: C:\WATCOM/lib286/dos\clibc.lib(comtflag.c)
+108a:09ac      __commode
+Module: C:\WATCOM/lib286/dos\clibc.lib(seterrno.c)
+0000:9ca1      __set_errno_
+0000:9cb3*     __set_EDOM_
+0000:9cc3*     __set_ERANGE_
+0000:9cd3*     __set_EINVAL_
+0000:9ce6      __set_doserrno_
+Module: C:\WATCOM/lib286/dos\clibc.lib(tolower.c)
+0000:9cf0      tolower_
+Module: C:\WATCOM/lib286/dos\clibc.lib(open.c)
+0000:9ee0*     open_
+0000:9f16      sopen_
+Module: C:\WATCOM/lib286/dos\clibc.lib(chktty.c)
+0000:9f43      __chktty_
+Module: C:\WATCOM/lib286/dos\clibc.lib(freefp.c)
+0000:9f6c      __freefp_
+0000:9fe7      __purgefp_
+Module: C:\WATCOM/lib286/dos\clibc.lib(allocfp.c)
+0000:a026      __allocfp_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fgetc.c)
+0000:a142+     __fill_buffer_
+0000:a22c      fgetc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fputc.c)
+0000:a2c9      fputc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(__lseek.c)
+0000:a391      __lseek_
+Module: C:\WATCOM/lib286/dos\clibc.lib(_clse.c)
+0000:a3c9      __close_
+Module: C:\WATCOM/lib286/dos\clibc.lib(flush.c)
+0000:a3f8      __flush_
+Module: C:\WATCOM/lib286/dos\clibc.lib(hpgrw086.c)
+0000:a523      __CMain_nheapgrow_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mem.c)
+0000:a530      __MemAllocator
+0000:a5fa      __MemFree
+Module: C:\WATCOM/lib286/dos\clibc.lib(growseg.c)
+0000:a757      __GrowSeg_
+Module: C:\WATCOM/lib286/dos\clibc.lib(allocseg.c)
+0000:a849      __AllocSeg_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fmemneed.c)
+0000:a8e0      __fmemneed_
+Module: C:\WATCOM/lib286/dos\clibc.lib(nmalloc.c)
+0000:a8e3      _nmalloc_
+108a:09ae      ___nheapbeg
+108a:09b0      ___MiniHeapRover
+108a:09b2      ___LargestSizeB4MiniHeapRover
+Module: C:\WATCOM/lib286/dos\clibc.lib(nfree.c)
+0000:a9b4      _nfree_
+108a:1ade+     ___MiniHeapFreeRover
+Module: C:\WATCOM/lib286/dos\clibc.lib(intr.c)
+0000:aaac      intr_
+Module: C:\WATCOM/lib286/dos\clibc.lib(segread.c)
+0000:aabe      segread_
+Module: C:\WATCOM/lib286/dos\clibc.lib(initfile.c)
+0000:aade      __InitFiles_
+Module: C:\WATCOM/lib286/dos\clibc.lib(ioexit.c)
+0000:ac24*     fcloseall_
+0000:ac29      __full_io_exit_
+Module: C:\WATCOM/lib286/dos\clibc.lib(initrtns.c)
+0000:ac6c*     __FInitRtns
+0000:ac70      __InitRtns
+0000:accb*     __FFiniRtns
+0000:accf      __FiniRtns
+Module: C:\WATCOM/lib286/dos\clibc.lib(biosfunc)
+0000:ad34*     __ibm_bios_equiplist_
+0000:ad37      __ibm_bios_keybrd_
+0000:ad4c*     __ibm_bios_memsize_
+0000:ad4f*     __ibm_bios_printer_
+0000:ad5a*     __ibm_bios_serialcom_
+Module: C:\WATCOM/lib286/dos\clibc.lib(dosret.c)
+0000:ad61*     _dosretax_
+0000:ad66*     _dosret0_
+0000:ad6d      __set_errno_dos_
+0000:adc7*     __set_errno_dos_reterr_
+Module: C:\WATCOM/lib286/dos\clibc.lib(iomode.c)
+0000:add1      __GetIOMode_
+0000:adf6      __SetIOMode_nogrow_
+108a:09c8      ___NFiles
+108a:09ca      ___init_mode
+108a:09f2      ___io_mode
+Module: C:\WATCOM/lib286/dos\clibc.lib(stack086.c)
+0000:ae19      stackavail_
+Module: C:\WATCOM/lib286/dos\clibc.lib(stk)
+0000:ae2d*     __STK
+0000:ae4d      __STKOVERFLOW_
+Module: C:\WATCOM/lib286/dos\clibc.lib(xmsg.c)
+0000:ae68*     __exit_with_msg_
+0000:ae6b      __fatal_runtime_error_
+Module: C:\WATCOM/lib286/dos\clibc.lib(cmain086.c)
+0000:ae85      __CMain
+Module: C:\WATCOM/lib286/dos\clibc.lib(crwdata)
+108a:09f8      __curbrk
+108a:0a00      __STACKLOW
+108a:0a02      __STACKTOP
+108a:0a04      __cbyte
+108a:0a06      __child
+108a:0a08      __no87
+108a:0a16      ___FPE_handler
+108a:09fa      __psp
+108a:0a0a      __get_ovl_stack
+108a:0a0e      __restore_ovl_stack
+108a:0a12      __close_ovl_file
+108a:0a1a      __LpCmdLine
+108a:0a1e      __LpPgmName
+108a:09fc      __osmajor
+108a:09fd      __osminor
+108a:09fe      __osmode
+108a:09ff      __HShift
+Module: C:\WATCOM/lib286/dos\clibc.lib(uselfn.c)
+108a:0a22      ___uselfn
+Module: C:\WATCOM/lib286/dos\clibc.lib(initargv.c)
+0000:aea6      __Init_Argv_
+0000:af02+     _getargv_
+0000:b0fb      __Fini_Argv_
+Module: C:\WATCOM/lib286\plibc.lib(cppdata.cpp)
+108a:1ae4      __wint_thread_data
+108a:1b00*     __compiled_under_generic
+Module: C:\WATCOM/lib286/dos\clibc.lib(ioalloc.c)
+0000:b11d      __ioalloc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(lseek.c)
+0000:b1b3      lseek_
+Module: C:\WATCOM/lib286/dos\clibc.lib(tell.c)
+0000:b1de      tell_
+Module: C:\WATCOM/lib286/dos\clibc.lib(heapwalk.c)
+0000:b235      __HeapWalk_
+Module: C:\WATCOM/lib286/dos\clibc.lib(prtf.c)
+0000:b34f      __prtf_
+Module: C:\WATCOM/lib286/dos\clibc.lib(setenvp.c)
+0000:c123      __setenvp_
+0000:c224      __freeenvp_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbisdbcs.c)
+108a:1b06      ___IsDBCS
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbislead.c)
+0000:c27c*     _ismbblead_
+108a:1b08      ___MBCSIsTable
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbinit.c)
+0000:c2d4      __mbinit_
+108a:0a24      ___MBCodePage
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbdtoupp.c)
+0000:c3af      _mbdtoupper_
+Module: C:\WATCOM/lib286/dos\clibc.lib(toupper.c)
+0000:c3bd      toupper_
+Module: C:\WATCOM/lib286/dos\clibc.lib(locmktim.c)
+0000:c3cb      __local_mktime_
+Module: C:\WATCOM/lib286/dos\clibc.lib(gmtime.c)
+0000:c5cb      __brktime_
+0000:c717+     _gmtime_
+0000:c73a*     gmtime_
+Module: C:\WATCOM/lib286/dos\clibc.lib(tzset.c)
+108a:0a26      ___start_dst
+108a:0a38      ___end_dst
+108a:0b4c*     _tzname
+108a:0b54      _timezone
+108a:0b58      _daylight
+108a:0b5a      ___dst_adjust
+0000:c748*     __DontCacheOSTZ_
+0000:c761*     __CacheOSTZ_
+0000:cce7+     __parse_tz_
+0000:ceb8      tzset_
+Module: C:\WATCOM/lib286/dos\clibc.lib(timeutil.c)
+0000:d00f      __isindst_
+Module: C:\WATCOM/lib286/dos\clibc.lib(mbtowc.c)
+0000:d2fc      mbtowc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(bits.c)
+108a:05fc      __Bits
+Module: C:\WATCOM/lib286/dos\clibc.lib(fdfs086)
+0000:d3fe      __FDFS
+Module: C:\WATCOM/lib286/dos\clibc.lib(noefgfmt.c)
+108a:0b82      ___EFG_printf
+108a:0b84      ___EFG_scanf
+Module: C:\WATCOM/lib286/dos\clibc.lib(i8m086)
+0000:d470*     __I8M
+0000:d470      __U8M
+0000:d456*     __I8ME
+0000:d456*     __U8ME
+Module: C:\WATCOM/lib286/dos\clibc.lib(opendos.c)
+0000:d5ba      _dos_open_
+Module: C:\WATCOM/lib286/dos\clibc.lib(isatt.c)
+0000:d5de      isatty_
+Module: C:\WATCOM/lib286/dos\clibc.lib(umaskval.c)
+108a:0b86      ___umaskval
+Module: C:\WATCOM/lib286/dos\clibc.lib(creatdos.c)
+0000:d5fa      _dos_creat_
+0000:d61c*     _dos_creatnew_
+Module: C:\WATCOM/lib286/dos\clibc.lib(stiomode.c)
+0000:d63c+     __grow_iomode_
+0000:d6f9+     __shrink_iomode_
+0000:d732      __SetIOMode_
+Module: C:\WATCOM/lib286/dos\clibc.lib(gtche.c)
+0000:d792      getche_
+Module: C:\WATCOM/lib286/dos\clibc.lib(qread.c)
+0000:d7ac      __qread_
+Module: C:\WATCOM/lib286/dos\clibc.lib(qwrit.c)
+0000:d7ca      __qwrite_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fsync.c)
+0000:d821      fsync_
+Module: C:\WATCOM/lib286/dos\clibc.lib(heapgrow.c)
+0000:d824*     _heapgrow_
+0000:d824*     _fheapgrow_
+0000:d825      _nheapgrow_
+Module: C:\WATCOM/lib286/dos\clibc.lib(heapen.c)
+108a:0b88      ___heap_enabled
+Module: C:\WATCOM/lib286/dos\clibc.lib(amblksiz.c)
+108a:0b8a      __amblksiz
+Module: C:\WATCOM/lib286/dos\clibc.lib(nmemneed.c)
+0000:d899      __nmemneed_
+Module: C:\WATCOM/lib286/dos\clibc.lib(grownear.c)
+0000:d921      __LastFree_
+0000:d99a      __ExpandDGROUP_
+Module: C:\WATCOM/lib286/dos\clibc.lib(dointr)
+0000:daa8      _DoINTR_
+Module: C:\WATCOM/lib286/dos\clibc.lib(sgdef086)
+108a:0b8e      __Start_XI
+108a:0bb8      __End_XI
+108a:0bb8      __Start_YI
+108a:0bd0      __End_YI
+Module: C:\WATCOM/lib286/dos\clibc.lib(enterdb.c)
+0000:de21      __EnterWVIDEO_
+108a:0b8c+     ___WD_Present
+Module: C:\WATCOM/lib286/dos\clibc.lib(___argc.c)
+108a:1c1e      ____Argv
+108a:1c22      ____Argc
+Module: C:\WATCOM/lib286/dos\clibc.lib(histsplt.c)
+108a:1c24      ___historical_splitparms
+Module: C:\WATCOM/lib286/dos\clibc.lib(wctomb.c)
+0000:de45      wctomb_
+Module: C:\WATCOM/lib286/dos\clibc.lib(itoa.c)
+0000:de6e+     utoa_
+0000:decb      itoa_
+Module: C:\WATCOM/lib286/dos\clibc.lib(strupr.c)
+0000:deee      strupr_
+Module: C:\WATCOM/lib286/dos\clibc.lib(lltoa.c)
+0000:df10      ulltoa_
+0000:dff5*     lltoa_
+Module: C:\WATCOM/lib286/dos\clibc.lib(ltoa.c)
+0000:e056      ultoa_
+0000:e0c5*     ltoa_
+Module: C:\WATCOM/lib286/dos\clibc.lib(clearenv.c)
+0000:e0f3      clearenv_
+Module: C:\WATCOM/lib286/dos\clibc.lib(leapyear.c)
+0000:e1cf      __leapyear_
+108a:038c      ___diyr
+108a:03a6      ___dilyr
+Module: C:\WATCOM/lib286/dos\clibc.lib(doserror)
+0000:e1fa      __doserror_
+Module: C:\WATCOM/lib286/dos\clibc.lib(frealloc.c)
+0000:e206*     _frealloc_
+0000:e206      realloc_
+Module: C:\WATCOM/lib286/dos\clibc.lib(iomodtty.c)
+0000:e2cc      __ChkTTYIOMode_
+0000:e308*     __IOMode_
+Module: C:\WATCOM/lib286/dos\clibc.lib(filedos.c)
+0000:e315*     _dos_close_
+0000:e321      _dos_commit_
+Module: C:\WATCOM/lib286/dos\clibc.lib(sbrk.c)
+0000:e32f*     sbrk_
+0000:e33e      __brk_
+Module: C:\WATCOM/lib286/dos\clibc.lib(alphabet.c)
+108a:03c0      ___Alphabet
+Module: C:\WATCOM/lib286/dos\clibc.lib(fmsize.c)
+0000:e3a6*     _msize_
+0000:e3a6      _fmsize_
+Module: C:\WATCOM/lib286/dos\clibc.lib(nexpand.c)
+0000:e3b7      __HeapManager_expand_
+0000:e52c      _nexpand_
+Module: C:\WATCOM/lib286/dos\clibc.lib(fexpand.c)
+0000:e57c      _fexpand_
+0000:e57c*     _expand_
+Module: C:\WATCOM/lib286/dos\clibc.lib(bfree.c)
+0000:e5ad      _bfree_
+Module: C:\WATCOM/lib286/dos\clibc.lib(bexpand.c)
+0000:e5ce      _bexpand_
+
+
+                        +--------------------+
+                        |   Libraries Used   |
+                        +--------------------+
+
+C:\WATCOM/lib286/dos\clibc.lib
+C:\WATCOM/lib286\plibc.lib
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  1000 (4096.)
+Memory size:  000134d0 (79056.)
+Entry point address: 0000:7f3a
+Link time: 00:00.47
