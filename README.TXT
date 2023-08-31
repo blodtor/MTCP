@@ -1,16 +1,16 @@
 Super Turbo NET Pac-Man v1.6 - Pac-Man для игры в 2м по сети или с 1 клавиатуры под DOS, Windows, GNU/Linux
 
-APPS\PACMAN\pacman.exe - реализация Pac-Man для DOS (IBM PC XT Intel 8088) для игры по сети в двоем
+APPS\PACMAN\pacman.exe - реализация Pac-Man для DOS (IBM PC XT Intel 8088) для игры по сети вдвоем
 использует в DOS mTCP для создания сетевого соединения при игре по сети
 исходный код тут: APPS\PACMAN\pacman.cpp
 
-APPS\PACMAN\pacman - реализация Pac-Man для GNU/Linux КОНСОЛЬНАЯ версия для игры по сети в двоем
+APPS\PACMAN\pacman - реализация Pac-Man для GNU/Linux КОНСОЛЬНАЯ версия для игры по сети вдвоем
 исходный код тут: APPS\PACMAN\pacman.cpp
 
-APPS\PACMAN\xpacman - реализация Pac-Man для GNU/Linux под X11 это НЕ консольная версия, без Xов не будет работать, для игры по сети в двоем на основе библиотеки XLib
+APPS\PACMAN\xpacman - реализация Pac-Man для GNU/Linux под X11 это НЕ консольная версия, без Xов не будет работать, для игры по сети вдвоем на основе библиотеки XLib
 исходный код тут: APPS\PACMAN\xpacman.cpp
 
-APPS\PACMAN\wpacman.exe - реализация Pac-Man для Windows 98, Windows XP, Windows 10 для игры по сети в двоем на основе Win32 API
+APPS\PACMAN\wpacman.exe - реализация Pac-Man для Windows 98, Windows XP, Windows 10 для игры по сети вдвоем на основе Win32 API
 исходный код тут: APPS\PACMAN\wpacman.cpp
 
 Описание игры:
